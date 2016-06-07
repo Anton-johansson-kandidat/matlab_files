@@ -1,6 +1,4 @@
 
-%Different relusions for friend and enemy, increase relusive as well
-%It doesn't work that well for c<0.2
 global h L time numberofpeople xspawn upperwall lowerwall lambda
 
 upperwall = 12.5; %Defining upperwall
