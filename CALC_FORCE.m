@@ -23,7 +23,7 @@ afriend = 2; %The constant of repulsion for people in the same crowd
 b=personalsphere; %Constant used in repelling force
 alpha1 = 0.5; %For the x-driving force
 alpha2 = 8; %For the y-driving force
-v0=1.5; %Their desired speed hade 1.5
+v0=1.5; %Their desired speed
 lambda = lambdany; %The value of the perception anisotropy
 
 %For viscosity
