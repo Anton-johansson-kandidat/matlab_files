@@ -2,7 +2,7 @@ function [F,timeone,timetwo,visk,p,vmedeltillplot,mfp,vlagring] = CALC_FORCE(y,n
 
 numberpeople=n; %Number of people
 length_corridor=length; %The length of the corridor
-fk = 1.6; %Force from the wall hade 0.5,1.3 funkade ganska bra
+fk = 1.6; %Force from the wall
 he=10; %Defining lower wall
 ht=12.5; %Defining upper wall
 d=0.2; %Distance from the wall until they feel the force, quite large since you're always aware of the wall
@@ -90,7 +90,7 @@ for i=1:4:4*numberpeople %increase with 4 each step since there are for equation
             
             
             %The code below calculates the angle theta between pedestrians
-            %Kanske endast borde r‰kna ut dessa om de befinner sig i
+            %Kanske endast borde r√§kna ut dessa om de befinner sig i
             %personalsphere?
             if theta_calculated==0
              if minussign ==0 && peddistance < personalsphere
@@ -156,7 +156,7 @@ for i=1:4:4*numberpeople %increase with 4 each step since there are for equation
     %The code below
     vlagring(vloopvariable) = sqrt(y(i+1)^2+y(i+3)^2);
     
-    %Slut pÂ kod for visk
+    %Slut p√• kod for visk
     
     
     
@@ -186,7 +186,7 @@ vyyy = sum(averageangley)/(numberpeople/2);
 vvektor = sqrt(vxxx^2+vyyy^2); %The veclosity vector is stored here
 
     
-%detta hˆr till polariering
+%detta h√∂r till polariering
 thetamedel = (sum(averageangley)/(numberpeople/2))/(sum(averageanglex)/(numberpeople/2)); %Calculate the average angle of motion
 d = zeros(1,numberpeople/2); %The d used in the polarization
 for r=1:numberpeople/2 %Loops over half the crowd
