@@ -1,3 +1,5 @@
+%CALC_FORCE program, note that some parameters might differ
+
 function [F,timeone,timetwo,visk,p,vmedeltillplot,mfp,vlagring] = CALC_FORCE(y,n,length,lambdany)
 
 numberpeople=n; %Number of people
