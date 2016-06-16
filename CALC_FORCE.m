@@ -1,4 +1,5 @@
-%CALC_FORCE program, This is a work in progress
+%CALC_FORCE program, This is a work in progress. I want to be able to simulate more behaviours than those described.
+%If you are interested in the simulation from the thesis then just change the parameters to those used there
 
 function [F,timeone,timetwo,visk,p,vmedeltillplot,mfp,vlagring] = CALC_FORCE(y,n,length,lambdany)
 
