@@ -1,4 +1,4 @@
-
+%SOLVE_SYSTEM code
 global h L time numberofpeople xspawn upperwall lowerwall lambda
 
 upperwall = 12.5; %Defining upperwall
