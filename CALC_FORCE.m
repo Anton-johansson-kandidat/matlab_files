@@ -1,4 +1,4 @@
-%CALC_FORCE program, note that some parameters might differ
+%CALC_FORCE program, This is a work in progress
 
 function [F,timeone,timetwo,visk,p,vmedeltillplot,mfp,vlagring] = CALC_FORCE(y,n,length,lambdany)
 
