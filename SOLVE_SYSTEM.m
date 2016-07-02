@@ -1,4 +1,5 @@
 %SOLVE_SYSTEM code
+%If you have any qustions please contact me at erikantonjohansson@live.com
 global h L time numberofpeople xspawn upperwall lowerwall lambda
 
 upperwall = 12.5; %Defining upperwall
@@ -192,7 +193,7 @@ figure;
 plot(tplot,viskositeten)
 ylabel('\mu (t)')
 xlabel('t (s)')
-axis([0 70 0 0.1])
+axis([0 time-5 0 0.06])
 %}
 
 
