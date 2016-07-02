@@ -1,5 +1,6 @@
 %CALC_FORCE program, This is a work in progress. I want to be able to simulate more behaviours than those described.
 %If you are interested in the simulation from the thesis then just change the parameters to those used there
+%If you have any questions please contact me at erikantonjohansson@live.com
 
 function [F,timeone,timetwo,visk,p,vmedeltillplot,mfp,vlagring] = CALC_FORCE(y,n,length,lambdany)
 
@@ -24,8 +25,7 @@ personalsphere=0.55; %This is their personalsphere,inside it they feel forces fr
 aenemy=3.5; %This is used in the repelling force between individuals in different crowds
 afriend = 2; %The constant of repulsion for people in the same crowd
 b=personalsphere; %Constant used in repelling force
-alpha1 = 0.5; %For the x-driving force
-alpha2 = 8; %For the y-driving force
+alpha1 = 0.5; %For the driving force
 v0=1.5; %Their desired speed
 lambda = lambdany; %The value of the perception anisotropy
 
@@ -51,7 +51,7 @@ for i=1:4:4*numberpeople %increase with 4 each step since there are for equation
     if (abs(ht-y(i+2))<d)   %If they are within distance d from the wall they should feel the force
     higherwallrepulsion = fk*(1-d/(abs(y(i+2)-ht))); %repulsion from thw wall
     end
-    drivingforcey = alpha2*(-y(i+3)); %Calculates the driving forcey
+    drivingforcey = 4*(-y(i+3))/alpha1; %Calculates the driving forcey
     pedestrepulsivex=0; %The repulsive force in x-direction
     pedestrepulsivey=0; %The repulsive force in y-direction
     
