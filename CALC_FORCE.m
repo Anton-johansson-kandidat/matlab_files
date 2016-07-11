@@ -3,6 +3,7 @@
 %If you have any questions please contact me at erikantonjohansson@live.com
 
 function [F,timeone,timetwo,visk,p,vmedeltillplot,mfp,vlagring] = CALC_FORCE(y,n,length,lambdany)
+%Code to calculate all the different forces
 
 numberpeople=n; %Number of people
 length_corridor=length; %The length of the corridor
@@ -67,17 +68,17 @@ for i=1:4:4*numberpeople %increase with 4 each step since there are for equation
             
             %The code below calculates the variables of those who feel
             %each other across the boundary  
-            if y(i)<-7.1 && minussign==1 %Check so they are close to the boundary and they are traveling to the left
-                if (abs(y(i)-y(k))>14.2) %Check if the person is close to the other across the boundary
+            if y(i)<-6.0 && minussign==1 %Check so they are close to the boundary and they are traveling to the left
+                if (abs(y(i)-y(k))>12) %Check if the person is close to the other across the boundary
                    peddistance = sqrt((y(i+2)-y(k+2))^2+((7.5-abs(y(i)))+(7.5-abs(y(k))))^2);%Calculate the distance between them
                    theta = atan((y(i+2)-y(k+2))/((7.5-abs(y(i)))+(7.5-abs(y(k))))); %calculate the angle
                    theta_calculated = 1; %The angle does not need to be calculated down below now
                 end
             end
             
-             if y(i)>7.1 && minussign==0 %Check so they are close to the boundary and traveling to the rigth
-                 if (abs(y(i)-y(k))>14.2) %Check so they are close to each other across the boundary
-                   peddistance = sqrt((y(i+2)-y(k+2))^2+((7.5-abs(y(i)))+(7.5-abs(y(k))))^2); %Calculate the distance between the pedestrians across the boundary
+             if y(i)>6.0 && minussign==0 %Check so they are close to the boundary and traveling to the rigth
+                 if (abs(y(i)-y(k))>12) %Check so they are close to each other across the boundary
+                   peddistance = sqrt((y(i+2)-y(k+2))^2+((6.4-abs(y(i)))+(6.4-abs(y(k))))^2); %Calculate the distance between the pedestrians across the boundary
                    theta = atan((y(i+2)-y(k+2))/((7.5-abs(y(i)))+(7.5-abs(y(k))))); %Calculate the angle
                    theta_calculated = 1;%The angle does not need to be calculated below
                 end
@@ -93,8 +94,6 @@ for i=1:4:4*numberpeople %increase with 4 each step since there are for equation
             
             
             %The code below calculates the angle theta between pedestrians
-            %Kanske endast borde räkna ut dessa om de befinner sig i
-            %personalsphere?
             if theta_calculated==0
              if minussign ==0 && peddistance < personalsphere
                 if(y(i)<y(k))
@@ -156,10 +155,10 @@ for i=1:4:4*numberpeople %increase with 4 each step since there are for equation
     density_factor=exp(-0.4*(peopleinvicinity-1)); %Calculates the density factor
     F(i:i+3,1) = [y(i+1);drivingforcex+density_factor*pedestrepulsivex;y(i+3);lowerwallrepulsion+higherwallrepulsion+drivingforcey+density_factor*pedestrepulsivey]; %The system of ODE:s
     
-    %The code below
+
     vlagring(vloopvariable) = sqrt(y(i+1)^2+y(i+3)^2);
     
-    %Slut på kod for visk
+
     
     
     
@@ -189,7 +188,7 @@ vyyy = sum(averageangley)/(numberpeople/2);
 vvektor = sqrt(vxxx^2+vyyy^2); %The veclosity vector is stored here
 
     
-%detta hör till polariering
+
 thetamedel = (sum(averageangley)/(numberpeople/2))/(sum(averageanglex)/(numberpeople/2)); %Calculate the average angle of motion
 d = zeros(1,numberpeople/2); %The d used in the polarization
 for r=1:numberpeople/2 %Loops over half the crowd
